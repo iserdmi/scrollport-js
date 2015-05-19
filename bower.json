@@ -1,0 +1,22 @@
+{
+  "name": "scrollport-js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/iserdmi/scrollport-js",
+  "authors": [
+    "Sergey Dmitriev (serdmi.com)"
+  ],
+  "description": "Plugin for something more interesting then usual scroll to.",
+  "main": "dist/scrollport.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "gulpfile.js",
+    "gulpfile.coffee",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "src"
+  ]
+}
