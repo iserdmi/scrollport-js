@@ -2,7 +2,8 @@
   "name": "scrollport-js",
   "version": "1.0.0",
   "description": "Plugin for something more interesting then usual scroll to.",
-  "main": "gulpfile.js",
+  "main": "dist/scrollport.min.js",
+  "dependencies": { "jquery": ">=1.8" },
   "devDependencies": {
     "coffee-script": "^1.9.1",
     "gulp": "^3.8.11",
@@ -21,7 +22,10 @@
     "type": "git",
     "url": "https://github.com/iserdmi/scrollport-js.git"
   },
-  "author": "Sergey Dmitriev (serdmi.com)",
+  "author": {
+    "name": "Sergey Dmitriev",
+    "web": "http://serdmi.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/iserdmi/scrollport-js/issues"
