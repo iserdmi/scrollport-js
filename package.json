@@ -1,6 +1,6 @@
 {
   "name": "scrollport-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Plugin for something more interesting then usual scroll to.",
   "main": "dist/scrollport.min.js",
   "dependencies": { "jquery": ">=1.8" },
