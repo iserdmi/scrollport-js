@@ -1,6 +1,6 @@
 # Scrollport.js
 
-Scrollport.js - not your boring plugin for scrolling animation. See [demo](http://serdmi.com/demo/scrollport/) for possible uses.
+Scrollport.js - not your boring plugin for scrolling animation. See [demo](http://serdmi.com/demo/scrollport/) for possible uses. README.md also availiable [in russian language](https://github.com/iserdmi/scrollport-js/blob/master/README_RU.md).
 
 Plug-in can not only animate the scroll, but also to assign references by clicking on which to begin the animation.
 
@@ -20,10 +20,10 @@ Plug-in can not only animate the scroll, but also to assign references by clicki
   container.scrollport( top, left [, options ] );
 ```
 * **`target`**  
-Either the object dzheykveri or selector element, which will be scrolling.
+Either the jQuery object or selector element, which will be scrolling.
 
 * **`container`** default `$(window)`  
-Object dzheykveri inside which will be scrolling.
+jQuery object inside which will be scrolling.
 
 * **`top`**  
 Number of pixels from the top edge of the `container`. The specified point will be scrolling.
@@ -51,7 +51,7 @@ If during the plugin it will initiate a new movement, the former stops. When set
 Set to `true` or `false`, setting the same value for the options `interrupt_user` and `interrupt_scrollport`
 
 * **`container`**  
-Dzheykveri element inside which will be scrolling. As you can see, the container can be set not only as an argument in a call to the plugin, but the pass option settings. The result will be the same.
+jQuery element inside which will be scrolling. As you can see, the container can be set not only as an argument in a call to the plugin, but the pass option settings. The result will be the same.
 
 * **`delta`** default `{top: 0, left: 0}`  
 The value of `top` determines how many pixels from the top should be "do not reach" to `target`. The value of `left` determines the number of pixels on the left. If you pass the optional number, it will be assumed that you pass `{top: your_number, left: 0} '.
@@ -188,10 +188,10 @@ Options passed to the initialization, combined with the default settings.
 At the time of initialization status `init`. If the failure occurred during initialization or initialization value it will be abolished `cancel`. During the movement of `motion`. After the interruption of `interrupt`. Upon successful completion, `finish`.
 
 * **`api.container`**  
-Dzheykveri object passed as the `container` initialization.
+jQuery object passed as the `container` initialization.
 
 * **`api.target`**  
-If the goal was transferred selector or object dzheykveri, `api.target` will contain targeted element. If the goal were the coordinates, the object will be `api.target` type `{top: ..., left: ...}`
+If the goal was transferred selector or object jQuery, `api.target` will contain targeted element. If the goal were the coordinates, the object will be `api.target` type `{top: ..., left: ...}`
 
 ## Examples
 
