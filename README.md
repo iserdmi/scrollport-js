@@ -1,9 +1,10 @@
 # Scrollport.js
-Scrollport.js — нескучный плагин для анимации скролла. Примитивное зрелище плавного передвижения скролла, которое мы видим на многих сайтах, всего лишь 1 из 4 режимов в этом плагине. Посмотрите [демо](http://serdmi.com/demo/scrollport/) и возвращайтесь за информацией о подключении и использовании.
 
-Плагин умеет не только анимировать скролл, но и назначать ссылки, при нажатии на которые, должна начаться анимация.
+Scrollport.js - not your boring plugin for scrolling animation. See [demo](http://serdmi.com/demo/scrollport/) for possible uses.
 
-## Использование
+Plug-in can not only animate the scroll, but also to assign references by clicking on which to begin the animation.
+
+## Use
 ```js
   $.scrollport( target [, options ] );
   $.scrollport( target [, container ] [, options ] );
@@ -18,139 +19,139 @@ Scrollport.js — нескучный плагин для анимации скр
   container.scrollport( top [, options ] );
   container.scrollport( top, left [, options ] );
 ```
-* **`target`**  
-Либо объект джэйквери, либо селектор элемента, к которому будет происходить скролл.
+* ** `target` **
+Either the object dzheykveri or selector element, which will be scrolling.
 
-* **`container`**  по умолчанию `$(window)`  
-Объект джэйквери, внутри которого будет происходить скролл.
+* ** `container` ** default `$(window)`
+Object dzheykveri inside which will be scrolling.
 
-* **`top`**  
-Количество пикселей от верхнего края `container`. В указанную точку будет производиться скролл.
+* ** `top` **
+Number of pixels from the top edge of the `container`. The specified point will be scrolling.
 
-* **`left`**  
-Количество пикселей от левого края `container`. В указанную точку будет производиться скролл.
+* ** `left` **
+Number of pixels from the left edge of the `container`. The specified point will be scrolling.
 
-* **`options`**  
-Настройки, отвечающие за режим скролла, детали скроллинга и колбэки.
+* ** `options` **
+Settings responsible for scroll mode, scroll details and callbacks.
 
-## Настройки
+## Settings
 
-Плагин имеет 4 режима. В зависимости от выбранного режима будут добавляться индивидуальные настройки. Далее перечислены опции, которые могут быть заданы вне зависимости от выбранного режима.
+The plugin has four modes depending on the selected mode will be added to the individual settings. The following are options which can be set regardless of the selected mode.
 
-* **`mode`** по умолчанию `usual`  
-Название режима: `usual`, `roll`, `hard` или `soft`.
+* ** `mode` ** default `usual`
+Profile name: `usual`, `roll`, `hard` or `soft`.
 
-* **`interrupt_user`** по умолчанию `true`  
-Если во время работы плагина пользователь совершит принудительный скролл, движение вызванное работой плагина прекратится.
+* ** `interrupt_user` ** default `true`
+If during operation the plug the user make a forced scrolling, the movement caused by the plugin will stop.
 
-* **`interrupt_scrollport`** по умолчанию `true`  
-Если во время работы плагина будет инициировано новое движение, прежнее прекратится. При значении `false` движение, вызванное поверх существующего, выполнено не будет.
+* ** `interrupt_scrollport` ** default `true`
+If during the plugin it will initiate a new movement, the former stops. When set to `false` caused over the existing movement will not be performed.
 
-* **`interrupt`**  
-Принимает значение `true` или `false`, устанавливая такое же значение для опций `interrupt_user` и `interrupt_scrollport`
+* ** `interrupt` **
+Set to `true` or `false`, setting the same value for the options `interrupt_user` and `interrupt_scrollport`
 
-* **`container`**  
-Джэйквери элемент, внутри которого будет происходить скролл. Как вы видите, задать контейнер можно не только в качестве аргумента к вызову плагина, но и передать опцией настройках. Результат будет тем же.
+* ** `container` **
+Dzheykveri element inside which will be scrolling. As you can see, the container can be set not only as an argument in a call to the plugin, but the pass option settings. The result will be the same.
 
-* **`delta`** по умолчанию `{ top: 0, left: 0 }`  
-Значение `top` определяет сколько пикселей сверху нужно «не доехать» до `target`. Значение `left` определяет количество пикселей слева. Если передать в качестве опции число, то будет считаться, что вы передаете `{ top: ваше_число, left: 0}`.
+* ** `delta` ** default `{top: 0, left: 0}`
+The value of `top` determines how many pixels from the top should be "do not reach" to `target`. The value of `left` determines the number of pixels on the left. If you pass the optional number, it will be assumed that you pass `{top: your_number, left: 0} '.
 
-* **`on_start`**  
-Функция, которая будет вызвана при начале движения. В качестве аргумента в функцию передается API. `this` будет содержать в себе `container`.
+* ** `on_start` **
+The function that will be called at the start of the movement. The argument passed to the function API. `this` will contain a `container`.
 
-* **`on_interrupt`**  
-Функция, которая будет вызвана при прерывании работы плагина пользовательским скроллом. В качестве аргумента в функцию передается API. `this` будет содержать в себе `container`.
+* ** `on_interrupt` **
+The function to be called when the plugin is interrupted user scrolls. The argument passed to the function API. `this` will contain a `container`.
 
-* **`on_finish`**  
-Функция, которая будет вызвана при успешном завершении скролла. То есть, если работа плагина не была прервана пользователем. В качестве аргумента в функцию передается API. `this` будет содержать в себе `container`.
+* ** `on_finish` **
+The function that will be called upon successful completion of the scroll. That is, if the action was not interrupted by the user. The argument passed to the function API. `this` will contain a `container`.
 
-* **`on_stop`**  
-Функция, которая будет вызвана в конце работы плагина. Не важно закончилось движение из-за прерывания, или прошло весь назначенный путь. В качестве аргумента в функцию передается API. `this` будет содержать в себе `container`.
+* ** `on_stop` **
+The function that will be called at the end of the movement, regardless of whether it was from interruption or completing the scroll path. The argument passed to the function API. `this` will contain a `container`.
 
 ### Usual mode
 
-Плавно доставляет к указанному месту, за заданный промежуток времени.
+Scrolls to that location, within a specified period of time.
 
-* **`duration`** по умолчанию `700`  
-Время в миллисекундах, за которое скролл пройдет расстояние от своего текущего положения до конечного.
+* ** `duration` ** default `700`
+Time in milliseconds the scroll shoud take.
 
-* **`easing`** по умолчанию `swing`
+* ** `easing` ** default `swing`
 
 ### Roll mode
 
-Доставляет к указанному месту с заданной скоростью.
+Scrolls to a specified location at a predetermined speed.
 
-* **`speed`** по умолчанию `2500`  
-Количество пикселей, которое скролл должен преодолевать за 1 секунду во время движения.
+* ** `speed` ** default `2500`
+The number of pixels that must be scrolled in 1 second (1000 ms).
 
-* **`max_duration`** по умолчанию `700`
-Если расстояния до цели велико, то можно определить максимальное количество миллисекунд, которые будет затрачено на переход к цели. Чтобы отключить ограничения передайте значение `false`.
+* ** `max_duration` ** default `700`
+Maximum allowed scroll time, if the distance to the target is large. You can define the maximum number of milliseconds that you are willing to wait. To disable restrictions pass the value `false`.
 
-* **`min_duration`** по умолчанию `300`  
-Если расстояние слишком короткое, чтобы не было ощущения слишком резкого перемещения, можно указать время, меньше чем за которое, нельзя приближаться к цели.
+* ** `min_duration` ** default `300`
+Minimum allowed scroll time, if the distance is too short, to avoid feeling too sharp move, you can specify the time, less than that, it is impossible to approach the target.
 
-* **`easing`** по умолчанию `swing`
+* ** `easing` ** default `swing`
 
 ### Hard mode
 
-Мгновенно перемещает нас за несколько пикселей до цели, а потом плавно докатывает до места.
+Instantly it moves us a few pixels to the target and then gently scrolls to the place.
 
-* **`distance`** по умолчанию `5`  
-Расстояние в пикселях, которое остается до цели после мгновенного перемещения.
+* ** `distance` ** default `5`
+The distance in pixels that remains the goal after a momentary movement.
 
-* **`duration`** по умолчанию `50`  
-Время, за которое будет пройден оставшийся путь.
+* ** `duration` ** default `50`
+Time during which the rest of the way will be passed.
 
-* **`easing`** по умолчанию `swing`
+* ** `easing` ** default `swing`
 
 ### Soft mode
 
-Плавно начинает движение в сторону цели, поверх контента появляется белый слой, постепенно становящийся непрозрачным. Когда слой станет абсолютно непрозрачным, скролл мгновенно переместится близко к цели. Затем плавно доедет до места, в то время как белый слой плавно исчезнет.
+Slowly begins to move toward the goal, the content appears on top of the white layer is gradually becoming not transparent. When the layer becomes completely opaque, scroll quickly moved close to the target. Then, slowly reach your during the White layer gradually disappears.
 
-Чтобы изменить какие-либо CSS параметры, внутри своих стилей задайте нужны свойства элементу с классом `scrollport-overlay`.
+To change any settings or CSS, in their style, set the desired properties of the element with the class `scrollport-overlay`.
 
-* **`distance_before`** по умолчанию `200`  
-Расстояние, которое проходит скролл до того, как слой станет непрозрачным.
+* ** `distance_before` ** default `200`
+Distance the scrolling before the layer becomes opaque.
 
-* **`distance_after`** по умолчанию `200`  
-Расстояние, которое проходит скролл после того, как слой начнет пропадать.
+* ** `distance_after` ** default `200`
+It distances the scroll after layer will begin to disappear.
 
-* **`distance`**  
-Позволяет задать значение сразу для обоих свойств: `distance_before` и `distance_after`.
+* ** `distance` **
+It allows you to set the value for both properties at once `distance_before` and `distance_after`.
 
-* **`duration_before`** по умолчанию `200`  
-Время, за которое скролл проходит расстояние указанное в `distance_before`.
+* ** `duration_before` ** default `200`
+Time for which the scroll goes the distance specified in the `distance_before`.
 
-* **`duration_after`** по умолчанию `400`  
-Время, за которое скролл проходит расстояние указанное в `distance_after`.
+* ** `duration_after` ** default `400`
+Time for which the scroll goes the distance specified in the `distance_after`.
 
-* **`duration`**  
-Позволяет задать значение сразу для обоих свойств `duration_before` и `duration_after`.
+* ** `duration` **
+It allows you to set the value for both properties at once `duration_before` and `duration_after`.
 
-* **`easing_before`** по умолчанию `swing`  
-Изинг(смягчение), с которым скролл проходит расстояние указанное в `distance_before`.
+* ** `easing_before` ** default `swing`
+Ising, which scroll goes the distance specified in the `distance_before`.
 
-* **`easing_after`** по умолчанию `swing`  
-Изинг(смягчение), с которым скролл проходит расстояние указанное в `distance_after`.
+* ** `easing_after` ** default `swing`
+Ising, which scroll goes the distance specified in the `distance_after`.
 
-* **`waiting`** по умолчанию `100`  
-Время, в течении которого слой будет оставаться непрозрачным.
+* ** `waiting` ** default `100`
+The time during which the layer will remain opaque.
 
-* **`easing`**  
-Позволяет задать значение сразу для обоих свойств: `easing_before` и `easing_after`.
+* ** `easing` **
+It allows you to set the value for both properties at once `easing_before` and `easing_after`.
 
-* **`speed`**  
-Если цель слишком близко, то скролл будет выполнен с использованием мода `roll`. В опции `speed` можно передать скорость, с которой скролл доберется до цели.
+* ** `speed` **
+If the target is too close, the scrolling will be carried out with the use of fashion `roll`. The option `speed` can pass the speed with which the scroll gets to the goal.
 
-## Изменение настроек по умолчанию
+## Changing default settings
 
 ```js
   $.scrollport( options );
 ```
 
-## Ссылки скроллпорта
+## Scrollport Links
 
-При нажатии на созданную ссылку будет инициирована работа плагина. Все ссылки с атрибутом `data-scrollport` автоматически будут считаться ссылками скроллпорта. Если не передать ни одно из значений `target`, `top` или `left`, тогда `target` автоматически примет значение атрибута `data-scrollport` или `href`, или `data-href`.
+Clicking on the link will be created by the plugin. All references to the attribute `data-scrollport` will be automatically assigned to be a scrollport anchor. If you do not pass any one of the values ​​`target`, `top` or `left`, then `target` will automatically attribute value `data-scrollport` or `href`, or `data-href`.
 
 ```js
   link.scrollport_link( [ target ] [, options ] );
@@ -162,17 +163,17 @@ Scrollport.js — нескучный плагин для анимации скр
   link.scrollport_link( top, left, [, options ] );
   link.scrollport_link( top, left, [, container ] [, options ] );
 ```
-* **`link`**  
-Объект джэйквери, который станет ссылкой скроллпорта.
+* ** `link` **
+Object target, which will link to a scrollport anchor.
 
 ## API
 
-Доступ к API можно получить следующим образом:
+API access can be obtained as follows:
 ```js
-  // При инициализации работы плагина.
+  // When the initialization of the plugin.
   api = $.scrollport( ... );
 
-  // API передается в функцию любого колбэка.
+  // API passed to the function of any callback.
   $.scrollport( ..., {
     on_finish: function( api ) {
       ...
@@ -180,34 +181,34 @@ Scrollport.js — нескучный плагин для анимации скр
   });
 ```
 
-* **`api.options`**  
-Настройки, переданные при инициализации, объединенные с настройками по умолчанию.
+* ** `api.options` **
+Options passed to the initialization, combined with the default settings.
 
-* **`api.status`**  
-В момент инициализации - статус `init`. Если произошел сбой при инициализации или инициализация была отменена, то значение будет `cancel`. Во время движения - `motion`. После прерывания - `interrupt`. При успешном завершении - `finish`.
+* ** `api.status` **
+At the time of initialization status `init`. If the failure occurred during initialization or initialization value it will be abolished `cancel`. During the movement of `motion`. After the interruption of `interrupt`. Upon successful completion, `finish`.
 
-* **`api.container`**  
-Объект джэйквери, переданный в качестве `container` при инициализации.
+* ** `api.container` **
+Dzheykveri object passed as the `container` initialization.
 
-* **`api.target`**  
-Если в качестве цели был передан селектор или объект джэйквери, то `api.target` будет содержать в себе джэйквери элемент. Если целью были координаты, то в `api.target` будет объект вида `{ top: ..., left: ... }`.
+* ** `api.target` **
+If the goal was transferred selector or object dzheykveri, `api.target` will contain targeted element. If the goal were the coordinates, the object will be `api.target` type `{top: ..., left: ...}`
 
+## Examples
 
-## Примеры
 ```js
-  // В режиме «usual» переместить скролл наверх страницы.
+  // In the "usual" to move the scroll to top of the page.
   $.scrollport( 'body' );
 
-  // В режиме «soft» переместить скролл за 500 пикселей от верха страницы
+  // In the "soft" to move the scroll 500 pixels from the top of the page
   $.scrollport( 500, { mode: 'soft' } );
 
-  // В режиме «hard» переместить скролл элемента с id «my_container» в точку на 100 пикселей правее начала контейнера, и 40 пикселей ниже.
+  // In the "hard" to move the scroll element with id "my_container" to a point 100 pixels to the right of the beginning of the container, and 40 pixels below.
   $( '#my_container' ).scrollport( 100, 100, { 
     mode: 'hard'
     delta: 60
   } );
  
-  // В режиме «usual» переместить скролл к элементу страницы с id «my_element». В конце движения вывести статус скроллпорта в консоль.
+  // In the "usual" to move the scroll to the item page id "my_element". At the end of the motion to withdraw the status skrollporta console.
   $.scrollport( '#my_element', { 
     on_stop: function( api ) {
       console.log( api.status );
@@ -215,19 +216,16 @@ Scrollport.js — нескучный плагин для анимации скр
   } );
 ```
 
-## Где взять?
-Можете взять через bower:  
+## Where can I get it?
+You can take through the bower:
 `$ bower install scrollport-js`
 
-Можете через npm:  
+You can through npm:
 `$ npm install scrollport-js`
 
-Даже на cdn есть. Ссылка на последнюю версию. Если нужна будет какая-то другая версия, измените «1.0.4» в ссылке на нужное значение:
+You can even get it via CDN. Link to the latest version. If you will need some other version, change "1.0.4" in reference to the desired value:
 ```
 https://cdn.rawgit.com/iserdmi/scrollport-js/1.0.4/dist/scrollport.min.js
 ```
 
-И только в крайнем случае [скачивайте напрямую](https://github.com/iserdmi/scrollport-js/archive/master.zip).
-
-## Нравится плагин?
-Тогда помогите, пожалуйста, перевести документацию на английский язык. Переведите часть текста и отправьте комментарием [к этому топику](https://github.com/iserdmi/scrollport-js/issues/1).
+Only in extreme cases [download it directly](https://github.com/iserdmi/scrollport-js/archive/master.zip).

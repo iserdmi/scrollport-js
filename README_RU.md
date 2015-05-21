@@ -228,6 +228,3 @@ https://cdn.rawgit.com/iserdmi/scrollport-js/1.0.4/dist/scrollport.min.js
 ```
 
 И только в крайнем случае [скачивайте напрямую](https://github.com/iserdmi/scrollport-js/archive/master.zip).
-
-## Нравится плагин?
-Тогда помогите, пожалуйста, перевести документацию на английский язык. Переведите часть текста и отправьте комментарием [к этому топику](https://github.com/iserdmi/scrollport-js/issues/1).
