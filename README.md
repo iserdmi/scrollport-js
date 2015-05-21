@@ -19,90 +19,90 @@ Plug-in can not only animate the scroll, but also to assign references by clicki
   container.scrollport( top [, options ] );
   container.scrollport( top, left [, options ] );
 ```
-* ** `target` **
+* **`target`**  
 Either the object dzheykveri or selector element, which will be scrolling.
 
-* ** `container` ** default `$(window)`
+* **`container`** default `$(window)`  
 Object dzheykveri inside which will be scrolling.
 
-* ** `top` **
+* **`top`**  
 Number of pixels from the top edge of the `container`. The specified point will be scrolling.
 
-* ** `left` **
+* **`left`**  
 Number of pixels from the left edge of the `container`. The specified point will be scrolling.
 
-* ** `options` **
+* **`options`**  
 Settings responsible for scroll mode, scroll details and callbacks.
 
 ## Settings
 
 The plugin has four modes depending on the selected mode will be added to the individual settings. The following are options which can be set regardless of the selected mode.
 
-* ** `mode` ** default `usual`
+* **`mode`** default `usual`  
 Profile name: `usual`, `roll`, `hard` or `soft`.
 
-* ** `interrupt_user` ** default `true`
+* **`interrupt_user`** default `true`  
 If during operation the plug the user make a forced scrolling, the movement caused by the plugin will stop.
 
-* ** `interrupt_scrollport` ** default `true`
+* **`interrupt_scrollport`** default `true`  
 If during the plugin it will initiate a new movement, the former stops. When set to `false` caused over the existing movement will not be performed.
 
-* ** `interrupt` **
+* **`interrupt`**  
 Set to `true` or `false`, setting the same value for the options `interrupt_user` and `interrupt_scrollport`
 
-* ** `container` **
+* **`container`**  
 Dzheykveri element inside which will be scrolling. As you can see, the container can be set not only as an argument in a call to the plugin, but the pass option settings. The result will be the same.
 
-* ** `delta` ** default `{top: 0, left: 0}`
+* **`delta`** default `{top: 0, left: 0}`  
 The value of `top` determines how many pixels from the top should be "do not reach" to `target`. The value of `left` determines the number of pixels on the left. If you pass the optional number, it will be assumed that you pass `{top: your_number, left: 0} '.
 
-* ** `on_start` **
+* **`on_start`**  
 The function that will be called at the start of the movement. The argument passed to the function API. `this` will contain a `container`.
 
-* ** `on_interrupt` **
+* **`on_interrupt`**  
 The function to be called when the plugin is interrupted user scrolls. The argument passed to the function API. `this` will contain a `container`.
 
-* ** `on_finish` **
+* **`on_finish`**  
 The function that will be called upon successful completion of the scroll. That is, if the action was not interrupted by the user. The argument passed to the function API. `this` will contain a `container`.
 
-* ** `on_stop` **
+* **`on_stop`**  
 The function that will be called at the end of the movement, regardless of whether it was from interruption or completing the scroll path. The argument passed to the function API. `this` will contain a `container`.
 
 ### Usual mode
 
 Scrolls to that location, within a specified period of time.
 
-* ** `duration` ** default `700`
+* **`duration`** default `700`  
 Time in milliseconds the scroll shoud take.
 
-* ** `easing` ** default `swing`
+* **`easing`** default `swing`  
 
 ### Roll mode
 
 Scrolls to a specified location at a predetermined speed.
 
-* ** `speed` ** default `2500`
+* **`speed`** default `2500`  
 The number of pixels that must be scrolled in 1 second (1000 ms).
 
-* ** `max_duration` ** default `700`
+* **`max_duration`** default `700`  
 Maximum allowed scroll time, if the distance to the target is large. You can define the maximum number of milliseconds that you are willing to wait. To disable restrictions pass the value `false`.
 
-* ** `min_duration` ** default `300`
+* **`min_duration`** default `300`  
 Minimum allowed scroll time, if the distance is too short, to avoid feeling too sharp move, you can specify the time, less than that, it is impossible to approach the target.
 
-* ** `easing` ** default `swing`
+* **`easing`** default `swing`
 
 ### Hard mode
 
 Instantly it moves us a few pixels to the target and then gently scrolls to the place.
 
-* ** `distance` ** default `5`
+* **`distance`** default `5`  
 The distance in pixels that remains the goal after a momentary movement.
 
-* ** `duration` ** default `50`
+* **`duration`** default `50`  
 Time during which the rest of the way will be passed.
 
-* ** `easing` ** default `swing`
+* **`easing`** default `swing`
 
 ### Soft mode
 
@@ -110,37 +110,37 @@ Slowly begins to move toward the goal, the content appears on top of the white l
 
 To change any settings or CSS, in their style, set the desired properties of the element with the class `scrollport-overlay`.
 
-* ** `distance_before` ** default `200`
+* **`distance_before`** default `200`  
 Distance the scrolling before the layer becomes opaque.
 
-* ** `distance_after` ** default `200`
+* **`distance_after`** default `200`  
 It distances the scroll after layer will begin to disappear.
 
-* ** `distance` **
+* **`distance`**
 It allows you to set the value for both properties at once `distance_before` and `distance_after`.
 
-* ** `duration_before` ** default `200`
+* **`duration_before`** default `200`  
 Time for which the scroll goes the distance specified in the `distance_before`.
 
-* ** `duration_after` ** default `400`
+* **`duration_after`** default `400`  
 Time for which the scroll goes the distance specified in the `distance_after`.
 
-* ** `duration` **
+* **`duration`**  
 It allows you to set the value for both properties at once `duration_before` and `duration_after`.
 
-* ** `easing_before` ** default `swing`
+* **`easing_before`** default `swing`  
 Ising, which scroll goes the distance specified in the `distance_before`.
 
-* ** `easing_after` ** default `swing`
+* **`easing_after`** default `swing`  
 Ising, which scroll goes the distance specified in the `distance_after`.
 
-* ** `waiting` ** default `100`
+* **`waiting`** default `100`  
 The time during which the layer will remain opaque.
 
-* ** `easing` **
+* **`easing`**  
 It allows you to set the value for both properties at once `easing_before` and `easing_after`.
 
-* ** `speed` **
+* **`speed`**  
 If the target is too close, the scrolling will be carried out with the use of fashion `roll`. The option `speed` can pass the speed with which the scroll gets to the goal.
 
 ## Changing default settings
@@ -163,7 +163,7 @@ Clicking on the link will be created by the plugin. All references to the attrib
   link.scrollport_link( top, left, [, options ] );
   link.scrollport_link( top, left, [, container ] [, options ] );
 ```
-* ** `link` **
+* **`link`**
 Object target, which will link to a scrollport anchor.
 
 ## API
@@ -181,16 +181,16 @@ API access can be obtained as follows:
   });
 ```
 
-* ** `api.options` **
+* **`api.options`**  
 Options passed to the initialization, combined with the default settings.
 
-* ** `api.status` **
+* **`api.status`**  
 At the time of initialization status `init`. If the failure occurred during initialization or initialization value it will be abolished `cancel`. During the movement of `motion`. After the interruption of `interrupt`. Upon successful completion, `finish`.
 
-* ** `api.container` **
+* **`api.container`**  
 Dzheykveri object passed as the `container` initialization.
 
-* ** `api.target` **
+* **`api.target`**  
 If the goal was transferred selector or object dzheykveri, `api.target` will contain targeted element. If the goal were the coordinates, the object will be `api.target` type `{top: ..., left: ...}`
 
 ## Examples
